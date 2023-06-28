@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/etotden/static/css/main.2aa3c29b.css",
-    "main.js": "/etotden/static/js/main.80a72823.js",
+    "main.js": "/etotden/static/js/main.cd69b880.js",
     "static/js/787.c4ccb3bd.chunk.js": "/etotden/static/js/787.c4ccb3bd.chunk.js",
     "index.html": "/etotden/index.html",
     "main.2aa3c29b.css.map": "/etotden/static/css/main.2aa3c29b.css.map",
-    "main.80a72823.js.map": "/etotden/static/js/main.80a72823.js.map",
+    "main.cd69b880.js.map": "/etotden/static/js/main.cd69b880.js.map",
     "787.c4ccb3bd.chunk.js.map": "/etotden/static/js/787.c4ccb3bd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2aa3c29b.css",
-    "static/js/main.80a72823.js"
+    "static/js/main.cd69b880.js"
   ]
 }
