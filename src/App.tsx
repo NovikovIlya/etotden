@@ -6,15 +6,53 @@ import './App.css';
 function App() {
   const [data,setData] = useState<string[]>([])
   const [dataEng,setDataEng] = useState<string[]>([])
-
-
-
+  const [click,setClick] = useState<boolean>(false)
 
   const inputRef   = useRef<HTMLButtonElement | null>(null) 
 
-  
 
   async function send() {
+
+    if (click === true){
+      return
+    }
+    setClick(true)
+  
+    var d = new Date();
+    var dayZ = d.getDate();
+    var mouthZ = d.getMonth() + 1
+    console.log(dayZ)
+    console.log(mouthZ)
+    try {
+      let response = await fetch(`http://numbersapi.com/${mouthZ}/${dayZ}/date?json`)
+      let result = await response.json()
+      console.log('hhe',result)
+      setDataEng([...dataEng,result.text])
+      if(dataEng.includes(result.text)  ){
+        console.log('такой уже естьтакой уже естьтакой уже есть')
+        send()
+        return;
+      }else{
+      
+      let resTrans = translate(result.text)
+      console.log('ruus',resTrans)
+      console.log('rr',result)
+      }
+      
+    } catch (error) {
+      
+    }finally{
+      const kek = ()=>{
+        setClick(false)
+      }
+      setTimeout(kek,200)
+
+    }
+    
+  }
+
+  async function send2() {
+
     var d = new Date();
     var dayZ = d.getDate();
     var mouthZ = d.getMonth() + 1
@@ -35,8 +73,8 @@ function App() {
     console.log('ruus',resTrans)
     console.log('rr',result)
     }
-   
-
+    
+    
   }
 
   useEffect(()=>{
@@ -78,13 +116,8 @@ function App() {
         setData([...data,resultData])
       }
      
-      
-
-      console.log('ss',data)
-     
     }
     mde()
-  
   }
  
   
@@ -92,18 +125,17 @@ function App() {
 
   return (
     <div className="App">
-
-      
       <div>{[...new Set(data)].map((item)=>{
-      
         return(
-          <div>{item}</div>
+          <div className='itemStyle' key={item}>{item}</div>
         )
-      })}</div>
+      })}
+      </div>
 
       {data.length < 11&&
-        <button ref={inputRef} className='tik' onClick={send}>Тык</button>
+        <button className='tik' onClick={send}>Тык</button>
       }
+      <button ref={inputRef} className='tik zero' onClick={send2}>Тык</button>
     </div>
   );
 }

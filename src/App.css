@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.zero{
+  /* opacity: 0; */
+  position: absolute;
+  visibility: hidden;
+}
+
+.itemStyle{
+  text-align: left;
+  background-color: azure;
+  padding: 10px;
+  margin: 10px;
+}
